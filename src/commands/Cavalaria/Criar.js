@@ -15,6 +15,13 @@ const execute = async (bot, msg, args) => {
           lb: "all",
           money: 0,
           daily: 0,
+          stelTime: 0,
+          securityLevel: 1,
+          stealLevel: 1,
+          xp: 0,
+          xpLevel: 1,
+          workTime: 0,
+          weekly: 0,
         });
         newData.save().catch((err) => console.log(err));
         return msg.reply("Criada, digite: /conta");

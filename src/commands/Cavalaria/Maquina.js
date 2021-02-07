@@ -14,9 +14,9 @@ const execute = async (bot, msg, args) => {
   if (bet <= 0) {
     return msg.reply("Isso é um número negativo");
   }
-  let coisa = ["❌", "❌", "❌", "❌"];
-  let coisas = ["⚪", "🔴", "🟢", "🔵"];
-  const m = await msg.channel.send(coisa[0] + coisa[1] + coisa[2] + coisa[3]);
+  let coisa = ["🔳", "🔳", "🔳"];
+  let coisas = ["⚪", "🔴", "🟢"];
+  const m = await msg.channel.send(coisa[0] + coisa[1] + coisa[2] + '❓');
   Data.findOne(
     {
       userID: msg.author.id,
@@ -29,18 +29,18 @@ const execute = async (bot, msg, args) => {
         if (bet > data.money) {
           return msg.reply("Você não tem tanto dinheiro!")
         }
-        for (i = 0; i < 4; i++) {
-          var n = Math.floor(Math.random() * 4) + 0;
+        for (i = 0; i < 3; i++) {
+          var n = Math.floor(Math.random() * 3) + 0;
           coisa[i] = coisas[n];
-          m.edit(coisa[0] + coisa[1] + coisa[2] + coisa[3]);
+          m.edit(coisa[0] + coisa[1] + coisa[2] + '❓');
         }
         const allEqual = arr => arr.every( v => v === arr[0] )
         if(allEqual(coisa)) {
-          m.edit(coisa[0] + coisa[1] + coisa[2] + coisa[3] + " **Ganhou \:(**");
-          data.money += bet*4;
+          m.edit(coisa[0] + coisa[1] + coisa[2] + "✅");
+          data.money += bet*3 ;
           data.save().catch((err) => console.log(err));
         } else{
-          m.edit(coisa[0] + coisa[1] + coisa[2] + coisa[3] + " **Perdeu \:(**");
+          m.edit(coisa[0] + coisa[1] + coisa[2] + "❌");
           data.money -= bet;
           data.save().catch((err) => console.log(err));
         }

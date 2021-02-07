@@ -6,6 +6,13 @@ const dataSchema = mongoose.Schema({
   lb: String,
   money: Number,
   daily: Number,
+  stealTime: Number,
+  securityLevel: Number,
+  stealLevel: Number,
+  xp: Number,
+  xpLevel: Number,
+  workTime: Number,
+  weekly: Number,
 });
 
 module.exports = mongoose.model("Data", dataSchema);
