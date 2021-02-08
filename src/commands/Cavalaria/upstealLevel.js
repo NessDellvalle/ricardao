@@ -26,8 +26,9 @@ const execute = async (bot, msg, args) => {
                 if (flag) {
                   flag = false;
                   if(data.money < data.stealLevel * 1250) return msg.reply("Não tem dinheiro")
-                    data.stealLevel +=1;
+
                     data.money -= data.stealLevel * 1250;
+                                      data.stealLevel +=1;
                     data.save().catch((err) => console.log(err));
                     msg.reply("Operação concluida!");
                 }
