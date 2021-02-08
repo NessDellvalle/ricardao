@@ -3,6 +3,7 @@ const Data = require("../../models/data.js");
 
 const execute = async (bot, msg, args) => {
   const id = msg.author.id;
+  var flag = true;
   Data.findOne(
     {
       userID: msg.author.id,
