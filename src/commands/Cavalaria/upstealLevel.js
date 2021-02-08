@@ -23,8 +23,9 @@ const execute = async (bot, msg, args) => {
               check.on("collect", (r) => {
                 if (flag) {
                   flag = false;
+                  if(data.money < data.stealLevel * 1250) return msg.reply("Não tem dinheiro")
                     data.stealLevel +=1;
-                    data.money -= data.securityLevel * 1250;
+                    data.money -= data.stealLevel * 1250;
                     data.save().catch((err) => console.log(err));
                     msg.reply("Operação concluida!");
                 }
@@ -37,7 +38,7 @@ const execute = async (bot, msg, args) => {
 };
 
 module.exports = {
-  name: "upseguranca",
+  name: "uproubo",
   section: "🏇 Cavalaria",
   help: "Você cria a sua conta no sistema de cavalaria",
   usage: "criar",

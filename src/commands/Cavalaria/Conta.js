@@ -45,8 +45,8 @@ const execute = async (bot, msg, args) => {
         ctx.fillText(user.username, 180, 50);
         ctx.fillText(`${data.money} R$`, 180, 95);
         ctx.font = "22px Arial";
-        ctx.fillText(`🛡️ ${data.securityLevel}`, 290, 140); //371
-        ctx.fillText(`🕵️ ${data.stealLevel}`, 341, 140);
+        ctx.fillText(`S ${data.securityLevel}`, 290, 140); //371
+        ctx.fillText(`R ${data.stealLevel}`, 341, 140);
         //? Avatar
         const avatar = await Canvas.loadImage(
           user.displayAvatarURL({ format: "jpg" })

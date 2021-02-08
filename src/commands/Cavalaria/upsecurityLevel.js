@@ -22,6 +22,7 @@ const execute = async (bot, msg, args) => {
               });
               check.on("collect", (r) => {
                 if (flag) {
+                  if(data.money < data.securityLevel * 1000) return msg.reply("Não tem dinheiro")
                   flag = false;
                     data.securityLevel +=1;
                     data.money -= data.securityLevel * 1000;
