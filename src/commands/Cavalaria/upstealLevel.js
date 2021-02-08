@@ -2,6 +2,7 @@
 const Data = require("../../models/data.js");
 
 const execute = async (bot, msg, args) => {
+  const id = msg.author.id;
   Data.findOne(
     {
       userID: msg.author.id,
@@ -15,7 +16,7 @@ const execute = async (bot, msg, args) => {
             msg.react("☑️").then((r) => {
               //filtros
               const checkF = (reaction, users) =>
-                reaction.emoji.name === "☑️" && users.id === user.id;
+                reaction.emoji.name === "☑️" && users.id === id;
 
               const check = msg.createReactionCollector(checkF, {
                 time: 60000,
