@@ -26,8 +26,8 @@ const execute = async (bot, msg, args) => {
                 if (flag) {
                   if(data.money < data.securityLevel * 1000) return msg.reply("Não tem dinheiro")
                   flag = false;
-                    data.securityLevel +=1;
                     data.money -= data.securityLevel * 1000;
+                                      data.securityLevel +=1;
                     data.save().catch((err) => console.log(err));
                     msg.reply("Operação concluida!");
                 }
