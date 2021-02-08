@@ -34,6 +34,7 @@ const execute = async (bot, msg, args) => {
             (err, userData) => {
               if (!userData) return msg.reply("A pessoa não tem uma conta!");
               if (userData.money == 0) return msg.reply("A pessoa não tem dinheiro");
+              if (authorData.stealLevel < userData.securityLevel) return msg.reply("O seu nivel de roubo é inferior ao nível de segurança da pessoa");
               if (timeout - (Date.now() - authorData.stealTime) > 0) {
                 let time = ms(timeout - (Date.now() - authorData.stealTime));
                 return msg.reply(`Pode roubar em: ${time.hours}H  ${time.minutes}M ${time.seconds}S`);
