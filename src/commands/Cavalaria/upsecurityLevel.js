@@ -13,7 +13,7 @@ const execute = async (bot, msg, args) => {
       if (!data) {
         return msg.reply("Oi, você precissa cria uma conta primeiro! `/criar`");
       } else {
-        msg.channel.send(`Upar o seu lvl de segurança para o ${data.securityLevel} [${data.securityLevel*1000}R$]`).then((msg) => {
+        msg.channel.send(`Upar o seu lvl de segurança para o ${data.securityLevel+1} [${data.securityLevel*1000}R$]`).then((msg) => {
             msg.react("☑️").then((r) => {
               //filtros
               const checkF = (reaction, users) =>

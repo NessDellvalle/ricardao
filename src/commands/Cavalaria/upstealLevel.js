@@ -13,7 +13,7 @@ const execute = async (bot, msg, args) => {
       if (!data) {
         return msg.reply("Oi, você precissa cria uma conta primeiro! `/criar`");
       } else {
-        msg.channel.send(`Upar o seu lvl de roubo para o ${data.stealLevel} [${data.stealLevel*1250}R$]`).then((msg) => {
+        msg.channel.send(`Upar o seu lvl de roubo para o ${data.stealLevel+1} [${data.stealLevel*1250}R$]`).then((msg) => {
             msg.react("☑️").then((r) => {
               //filtros
               const checkF = (reaction, users) =>
